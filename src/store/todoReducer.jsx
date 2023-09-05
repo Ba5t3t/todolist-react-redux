@@ -2,7 +2,6 @@ const defaultState = {
   tasks: localStorage.getItem("TASK")
     ? JSON.parse(localStorage.getItem("TASK"))
     : [],
-  editTask: "",
 };
 
 const ADD_TASK = "ADD_TASK";
@@ -28,9 +27,12 @@ export const todoReducer = (state = defaultState, action) => {
       return { ...state, tasks: [...state.tasks] };
 
     case EDIT_TASK:
+      const { id, newText } = action.payload;
       return {
         ...state,
-        editTask: state.tasks.find((item) => item.id === action.payload),
+        tasks: state.tasks.map((item) =>
+          item.id === id ? { ...item, title: newText } : item
+        ),
       };
 
     default:

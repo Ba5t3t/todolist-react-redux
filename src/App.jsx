@@ -17,7 +17,12 @@ function App() {
       <Title />
       <InputForm />
       <SortTasksSelect />
-      <TodoItem />
+      <ul className='list'>
+        {tasks.length === 0 && "No tasks"}
+        {tasks.map((item) => {
+          return <TodoItem key={item.id} {...item} />;
+        })}
+      </ul>
     </>
   );
 }

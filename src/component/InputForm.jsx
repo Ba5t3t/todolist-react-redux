@@ -8,7 +8,7 @@ export const InputForm = () => {
 
   const addTask = () => {
     const newTask = {
-      taskText: inputValue,
+      title: inputValue,
       id: Math.floor(Math.random() * (10000 + 1)),
     };
 
