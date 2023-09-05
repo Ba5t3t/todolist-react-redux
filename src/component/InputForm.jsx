@@ -1,10 +1,9 @@
 import { addTaskAction } from "../store/todoReducer";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 export const InputForm = () => {
   const dispatch = useDispatch();
-  const tasks = useSelector((state) => state.tasks.tasks);
   const [inputValue, setInputValue] = useState("");
 
   const addTask = () => {
@@ -12,7 +11,9 @@ export const InputForm = () => {
       taskText: inputValue,
       id: Math.floor(Math.random() * (10000 + 1)),
     };
+
     dispatch(addTaskAction(newTask));
+
     setInputValue("");
   };
 
@@ -31,13 +32,7 @@ export const InputForm = () => {
         placeholder='add a task to do'
         onKeyDown={handleSubmit}
       />
-      <button
-        onClick={() => {
-          addTask();
-        }}
-      >
-        add
-      </button>
+      <button onClick={addTask}>add</button>
     </div>
   );
 };

@@ -83,6 +83,11 @@ button:focus-visible {
   transition: border-color 0.25s;
 }
 
+.todo-item {
+  display: flex;
+  justify-content: left;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
