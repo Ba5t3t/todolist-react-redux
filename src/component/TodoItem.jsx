@@ -9,8 +9,8 @@ export const TodoItem = (props) => {
   const [editing, setEditing] = useState(false);
   const [updateInput, setUpdateInput] = useState(title);
 
-  const removeTask = (task) => {
-    dispatch(removeTaskAction(task.id));
+  const removeTask = (id) => {
+    dispatch(removeTaskAction(id));
   };
 
   const editTask = () => {
@@ -26,10 +26,10 @@ export const TodoItem = (props) => {
 
   return (
     <li className='todo-item'>
-      <label>{updateInput}</label>
+      <label>{title}</label>
       <button
         onClick={() => {
-          removeTask(item);
+          removeTask(id);
         }}
       >
         Delete

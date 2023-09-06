@@ -12,8 +12,11 @@ export const InputForm = () => {
       id: Math.floor(Math.random() * (10000 + 1)),
     };
 
-    dispatch(addTaskAction(newTask));
-
+    if (inputValue === "") {
+      alert("add a task!");
+    } else {
+      dispatch(addTaskAction(newTask));
+    }
     setInputValue("");
   };
 
